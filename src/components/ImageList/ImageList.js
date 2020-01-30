@@ -1,20 +1,28 @@
-import React from 'react';
+import React from "react"
+import { Link } from "react-router-dom"
 
-const ImageList = props => {
-  const { images } = props;
+import "./ImageList.css"
+
+const ImageList = ({ images }) => {
+  console.log(images)
   return (
-    <div>
-      {images.map(({ id, largeImageURL, tags }) => {
-        return (
-          <div key={id}>
-            <img src={largeImageURL} alt={tags}></img>
-
-            <button>Search</button>
-          </div>
-        );
-      })}
+    <div className="container">
+      <div className="row">
+        { images.map(image => {
+          return (
+            <div key={image.id} className="col-md-4" style={{ marginBottom:"2rem" }}>
+              <div className="imageList__container">
+                <img className="imageList__image" src={image.largeImageURL} alt={image.tags} />
+              </div>
+              <div className="image__details">
+                <button>View</button>
+              </div>
+            </div>
+          )
+        }) }
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default ImageList;
+export default ImageList

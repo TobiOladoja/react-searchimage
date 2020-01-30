@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "react-router-dom"
+
 
 import "./ImageList.css"
 
@@ -15,7 +15,7 @@ const ImageList = ({ images }) => {
                 <img className="imageList__image" src={image.largeImageURL} alt={image.tags} />
               </div>
               <div className="image__details">
-                <button>View</button>
+                <button>{image.tags}</button>
               </div>
             </div>
           )
